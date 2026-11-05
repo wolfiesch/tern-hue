@@ -1,0 +1,15 @@
+schema = 1
+id = "hue"
+name = "Hue Lights"
+version = "0.1.0"
+description = "Philips Hue rooms, zones, scenes and lights from the local bridge, with palette commands and a status segment."
+icon = "gauge"
+host = "host.luau"
+window = "window.luau"
+styles = ["style.css"]
+
+[[blocks]]
+id = "panel"
+title = "Hue Lights"
+icon = "gauge"
+palette = true

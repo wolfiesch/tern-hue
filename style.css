@@ -1,0 +1,10 @@
+[data-surface='plugin.hue.panel'] [data-role='hue.scenes'] {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+[data-surface='plugin.hue.panel'] [data-role='hue.detail'] {
+	border-radius: var(--r-card);
+	background: var(--card);
+}
