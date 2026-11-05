@@ -2,6 +2,8 @@
 
 Control Philips Hue lights from a native Tern pane, the command palette and the status bar, through the Hue bridge's local API.
 
+![Hue Lights pane with rooms, zones and the Living room card open, rendered against the demo bridge](docs/screenshot.png)
+
 - **Hue Lights pane:** rooms and zones with their lit and offline counts, average brightness, and **Off**/**On**, **−** and **+** controls. **All on** and **All off** cover the whole bridge. Select a room or zone to open its card with its scenes and each of its lights.
 - **Status segment:** `Hue 3/3 on · 2 offline` counts lit lights out of reachable ones, then unreachable lights. Click it to open the pane.
 - **Palette:** **Open Hue lights**, **Hue: all lights on**, **Hue: all lights off** and **Hue: toggle all lights**. Toggle reads the bridge first, so it turns everything off when any reachable light is lit and on otherwise.
@@ -76,6 +78,6 @@ luau-analyze model.luau bridge.luau view.luau
 
 CI runs the same two commands on every pull request and push to `main`. `tern plugin types .` writes `tern.d.luau` for luau-lsp.
 
-Unit checks do not verify native rendering or the bridge. For view or control changes, also load the plugin in Tern and check the pane against a direct read of `/lights`.
+Unit checks do not verify native rendering or the bridge. For view or control changes, also load the plugin in Tern and check the pane against a direct read of `/lights`. `tests/headless.sh [OUT]` renders the pane in a headless Tern against `tests/mock_bridge.py`, a demo bridge on localhost, and saves it as `OUT/pane.png`; that is how `docs/screenshot.png` was made. It needs macOS for `sips`.
 
 Tern reloads a linked plugin each time a file is saved. A save that leaves a syntax error stops any open Hue pane; run **Open Hue lights** again after fixing it to replace the stopped pane.
